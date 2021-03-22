@@ -8,10 +8,12 @@ function modifyArray(array) {
 //Write a function combineArray(arr1, arr2), which takes 2 arrays, and returns a new array consisting only of numeric elements of arrays arr1 and arr2.
 
 function combineArray(arr1, arr2) {
-    const newArr1 = arr1.filter(el => typeof(el) == 'number')
+    const newArr1 = arr1.filter(el => typeof(el) == 'number')   
     const newArr2 = arr2.filter(el => typeof(el) == 'number')
     const arr3 = newArr1.concat(newArr2)
     return arr3
+    //or
+    return [...arr1, ...arr2].filter(el => typeof el === 'number')
 }
 
 //Implement the longestLogin(loginList) function, which takes an array of user logins loginList  and returns the longest login.
