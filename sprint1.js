@@ -32,6 +32,12 @@ function factorial(n) {
     return 1
   }
   return n * factorial(n - 1)
+    //or
+   let f = 1
+   for (i = 1; i <= n; i++) {
+       f =* i
+   }
+    return f
 }
 
 function processArray(arr, factorial) {
@@ -49,6 +55,13 @@ function checkAdult(age) {
     if (age < 18) throw 'Access denied - you are too young!'
     if (!Number.isInteger(age)) throw 'Please, enter Integer number'
     console.log('Access allowed')
+      //or
+      switch(true){
+          case age == 'Undefined':{
+              throw new Error 'Please, enter number'
+              break
+          }...
+      }
   } catch (err) {
     console.log('Error ' + err)
   } finally {
