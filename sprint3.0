@@ -1,0 +1,65 @@
+const getMin(arr){
+  return Math.min.apply(null, arr)
+}
+
+//2
+
+const product = function(){
+ return [].reduce.call(arguments, function(res, el){
+  return res * el
+ }, this.product)
+}
+
+const contextObj = { product: 10 }
+
+const getProduct = product.bind(contextObj, 2, 3)
+
+//3
+
+class Movie {
+ constructor(name, categry, startShow){
+   this.name = name
+   this.category = category
+   this.startShow = startShow
+ }
+ 
+ watchMovie(){
+  return `I watch ${this.name} movie`
+ }
+}
+
+
+//4
+
+class Student {
+  constructor(fullName, direction){
+  this.fullName = fullName
+  this.direction = direction
+  }
+  
+  showFullName(){
+   return this._fullName
+  }
+  
+  get direction(){
+   return  this._direction
+  }
+  
+  set direction(value){
+   return this._direction= value
+   }
+  
+}
+
+//5
+
+function mapCreator(keys, values){
+  let map = new Map()
+  for(let i of keys){
+   if(typeof values[i - 1] === 'string') {
+   map.set(i, values[i -1])
+   }
+  }
+  return map
+}
+
