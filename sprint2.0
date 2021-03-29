@@ -10,6 +10,13 @@ const maxInterv = (...arr) => {
 	max = Math.max(max, n)
       }
      return max
+     
+     //or
+     return arr.reduce((interval, el, i) =>{
+     if( i === arr.length - 1) return interval
+     const interv = Math.abs(arr[i + 1] - el)
+     return interv > interval ? interv : interval
+     }, 0)
 }
 
 //The user enters as arguments the number of seconds, minutes, hours, days, weeks, months, years. 
