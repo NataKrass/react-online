@@ -1,0 +1,43 @@
+function getPromise(delay, message) {
+    return new Promise(function(resolve, reject){
+        if(delay){
+            resolve(message)
+        } else {
+            reject(error)
+        }
+    })
+}
+
+//Write an add(x, y) function that takes two arguments x and y. 
+//The function should return a Promise that resolves with the sum of the two arguments if they are Numbers, or rejects with the message "Error!" otherwise.
+
+function add(x, y) {
+  return new Promise(function(resolve, reject){
+      if(typeof x === 'number' && typeof y === 'number'){
+          resolve(x + y)
+      } else {
+          reject('Error!')
+      }
+  })
+}
+//
+
+async function getAge() {
+
+  getUserProfile(getUser()
+    .then(user => {
+      let id = user.id
+      return id
+        })
+        ).then(age => age)
+    return age;
+}
+
+//Implement the take() function that converts a sequence of iterated values into a sequence of length n.
+
+function* take(n, iterable) {
+  
+  for(let i = 0; i < n; i++){
+      yield iterable[i]
+  }
+}
