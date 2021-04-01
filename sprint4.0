@@ -6,6 +6,11 @@ function getPromise(delay, message) {
             reject(error)
         }
     })
+    
+    //or
+    return new Promise((resolve) => {
+    setTimeout(() => resolve(message), delay)
+    }
 }
 
 //Write an add(x, y) function that takes two arguments x and y. 
@@ -24,13 +29,9 @@ function add(x, y) {
 
 async function getAge() {
 
-  getUserProfile(getUser()
-    .then(user => {
-      let id = user.id
-      return id
-        })
-        ).then(age => age)
-    return age;
+    const user = await getUser()
+    const profile = await getUserProfile(user.id)
+    return profile.age 
 }
 
 //Implement the take() function that converts a sequence of iterated values into a sequence of length n.
@@ -40,4 +41,11 @@ function* take(n, iterable) {
   for(let i = 0; i < n; i++){
       yield iterable[i]
   }
+  
+  //or
+  let counter = n
+  for (const item of iterable)
+  if(counter-- <= 0) return
+  return item
+  
 }
