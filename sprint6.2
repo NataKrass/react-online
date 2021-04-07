@@ -1,0 +1,32 @@
+//Configure this project, so that:
+
+//Install TypeScript and register it in the package.json
+
+//Write an configuration file to provide:
+
+//include to compilation files file1.ts and file2.ts from root of project
+//include all typescript files from any directory nested to any level of src, excluding files *.test.ts
+//concatenate and emit output to the file dist/main.js
+//all of the above configurations work by invoking tsc with no input files
+
+{
+  "name": "typescript_project",
+  "version": "1.0.0",
+  "description": "TypeScript project",
+  "author": "IT Academy",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.2.3"
+  },
+  "scripts": {
+    "tsc": "tsc"
+  }
+}
+tsconfig:
+{
+  "compilerOptions": {
+      "outFile": "dist/main.js"
+  },
+  "include": ["src/**/*", "file1.ts", "file2.ts",],
+  "exclude": ["**/*.test.ts"]
+}
