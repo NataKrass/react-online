@@ -1,0 +1,42 @@
+//There is the file gulpfile.js
+
+//Configure it to specify (if you use any extras plugins describe them in the package.json, as appropriate):
+
+//Create the task will take all the js files located in the src directory and its subdirectories recursively and concatenate them into one output/result.js file
+//Create the task will take all the css files located in the src directory and its subdirectories recursively and concatenate them into one output/result.css file
+//Define the public default task will run the tasks described above
+
+{
+  "name": "gulp_project",
+  "version": "1.0.0",
+  "description": "gulp project",
+  "main": "gulpfile.js",
+  "author": "IT Academy",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  },
+    "scripts": {
+    "gulp": "gulp"
+  },
+  "dependencies": {
+    "gulp-concat": "^2.6.1"
+  }
+}
+
+gulpfile.js
+var gulp = require("gulp");
+concat = require('gulp-concat');
+
+function taskJs(){
+    return gulp.src("src/**/*.js")
+    .pipe(concat("result.js"))
+    .pipe(gulp.dest("output"));
+};
+function taskCss(){
+  return gulp.src("src/**/*.css")
+    .pipe(concat("result.css")) 
+    .pipe(gulp.dest("output"))
+}
+
+gulp.task("default", gulp.series(taskJs, taskCss))
